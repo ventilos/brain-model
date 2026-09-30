@@ -1,0 +1,41 @@
+# Raw neurophysiology data
+*.edf
+*.bdf
+*.set
+*.fdt
+
+# Raw/project data directories
+ST44_RAW_88_VERIFIED/
+raw/
+data/raw/
+
+# Runtime checkpoints and temporary outputs
+CHECKPOINT_*/
+checkpoint*/
+tmp/
+temp/
+__pycache__/
+*.pyc
+
+# Python environments
+.venv/
+venv/
+env/
+
+# Secrets and credentials
+.env
+.env.*
+credentials*
+secrets*
+*.key
+*.pem
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Large temporary archives
+*.tar
+*.tar.gz
+*.7z
