@@ -1,0 +1,215 @@
+# Brain Model -- Migration Ledger
+
+**Project:** Brain Model (BM-2026)  
+**Repository:** brain-model  
+**Canonical branch:** main  
+**Migration status:** IN PROGRESS  
+**Purpose:** controlled migration of Brain Model artifacts into the canonical Git repository.
+
+## 1. Migration rule
+
+No historical package or analysis directory is copied wholesale into the canonical source tree.
+
+Every artifact must be classified before migration as one of:
+
+- CURRENT -- current canonical project state or active analysis
+- SOURCE -- executable scientific source code
+- TEST -- validation, regression, smoke, or integrity test
+- CONFIG -- frozen configuration or preregistration contract
+- GENERATED -- reproducible output generated from source/configuration
+- PROVENANCE -- audit, execution, lineage, checksum, or historical record
+- SUPERSEDED -- retained only for history/reproducibility
+- EXTERNAL/RAW -- external or raw data; referenced but not committed unless explicitly approved
+
+## 2. Current scientific lineage
+
+Current ST44 lineage:
+
+BM-A011 R3
+→ BM-A027 preregistration / BM-CHALLENGE-001
+→ Amendment-001
+→ BM-A028 G0/G1 decision
+→ BM-A029 G2 implementation
+→ BM-A030 resumable G2 runner
+→ BM-A031 corrective G2 patch
+→ BM-A032 positive-control / injection-recovery diagnostic
+
+The locked BM-A011 R3 and G1 result must not be silently modified by later analyses.
+
+## 3. Artifact ledger
+
+| Artifact | Classification | Status | Target / policy |
+|---|---|---|---|
+| README.md | CURRENT | MIGRATED | repository root |
+| CHANGELOG.md | CURRENT / PROVENANCE | MIGRATED | repository root |
+| .gitignore | CONFIG | MIGRATED | repository root |
+| docs/PROJECT_STATUS.md | CURRENT | MIGRATED | docs/ |
+| docs/MIGRATION_LEDGER.md | CURRENT / PROVENANCE | CURRENT | docs/ |
+| BM-A011 R3 scientific package | SOURCE / PROVENANCE | FROZEN | classify contents before migration |
+| BM-A011 R3 outputs | GENERATED | FROZEN | results/ after manifest verification |
+| BM-A027 preregistration | CONFIG / PROVENANCE | FROZEN | docs/provenance/ |
+| BM-A027 frozen config | CONFIG | FROZEN | configs/ |
+| Amendment-001 | CONFIG / PROVENANCE | FROZEN | docs/provenance/ |
+| BM-A028 G0/G1 decision | PROVENANCE / GENERATED | FROZEN | docs/provenance/ or results/ |
+| BM-A029 G2 replay | SOURCE | SUPERSEDED BY A031 FOR EXECUTION | archive/provenance |
+| BM-A030 resumable runner | SOURCE / PROVENANCE | SUPERSEDED BY A031 FOR EXECUTION | archive/provenance |
+| BM-A031 patched G2 runner | SOURCE | CURRENT / FULL G2 NOT RUN | src/ after verification |
+| BM-A031 regression test | TEST | CURRENT | tests/ after verification |
+| BM-A031 patch note | PROVENANCE | CURRENT | docs/provenance/ |
+| BM-A032 frozen protocol | CONFIG / PROVENANCE | CURRENT DIAGNOSTIC | configs/ + docs/provenance/ |
+| BM-A032 Phase-A runner | SOURCE / TEST | CURRENT DIAGNOSTIC | tests/ or scripts/ after verification |
+| BM-A032 Phase-A outputs | GENERATED | REVIEW | results/diagnostics/ |
+| BM-A032 execution record | PROVENANCE | CURRENT | docs/provenance/ |
+| BM ST44 R3 preprint v1.0 | PROVENANCE / DOCUMENT | CURRENT PUBLICATION DRAFT | docs/preprint/ |
+| BM-PKG-001 | SUPERSEDED / PROVENANCE | SUPERSEDED | archive only |
+| BM-PKG-002 | PROVENANCE | HISTORICAL REPRODUCIBILITY BASELINE | archive/provenance; not canonical source |
+| Sleep-EDF / ST44 raw EDF data | EXTERNAL/RAW | EXTERNAL | DO NOT COMMIT |
+| External HDF5/raw datasets | EXTERNAL/RAW | EXTERNAL | DO NOT COMMIT |
+
+## 4. Scientific lock
+
+The following BM-A011 R3 properties remain frozen during migration:
+
+- cohort: 19 participants / 38 recordings
+- surrogate count: B = 1999 per recording × variant
+- master seed: 20260921
+- support: contiguous N2 runs
+- transitions never cross N2-run boundaries
+- statistic: T_cs on common target support
+- primary nulls:
+  - common_phase_run
+  - epochwise_common_phase
+- sensitivity null:
+  - independent_channel_phase
+
+G1 is closed.
+
+Later code migration, G2 diagnostics, positive controls, repository restructuring, or documentation changes must not retroactively alter the locked G1 result.
+
+## 5. Current G1 state
+
+Locked status:
+
+RAW_SIGNAL_NOT_SUPPORTED_UNDER_PRESPECIFIED_COMMON_PHASE_NULLS
+
+This is a bounded statistical result and must not be promoted to claims that neural memory, temporal dependence, nonlinear dynamics, or every Brain Model representation is absent.
+
+## 6. BM-A031 state
+
+BM-A031 corrects the G2 implementation layer without reopening G1.
+
+Current state:
+
+PATCH_PREPARED  
+STATIC_TEST_PASS  
+FULL_G2_NOT_RUN
+
+The corrected implementation includes:
+
+- state order: LL, LH, HL, HH
+- explicit handling of undefined transition rows
+- checkpoint schema V3
+- runner SHA-256 included in checkpoint contract
+- explicit state-order and transition-row policy provenance
+- no reuse of incompatible earlier checkpoints
+
+BM-A031 must be verified before becoming canonical executable source.
+
+## 7. BM-A032 state
+
+BM-A032 is a diagnostic positive-control / injection-recovery analysis.
+
+Current state:
+
+REVIEW  
+SEQUENCE_LEVEL_DIAGNOSTIC_COMPLETE  
+RAW_SIGNAL_PHASE_B_NOT_RUN
+
+Phase-A diagnostic:
+
+- lambda = 0 rejection/recovery: 0.048
+- lambda = 1 recovery: 0.000
+- monotone adjacent pairs: 7/8
+
+The first injection construction therefore did not validate as a suitable positive-control family.
+
+BM-A032 Phase A must not be described as an empirical Sleep-EDF power estimate.
+
+The next scientific step is diagnosis/revision of the positive-control generator before using it to make power claims.
+
+## 8. Historical packages
+
+BM-PKG-001 is superseded.
+
+BM-PKG-002 is retained as a historical reproducibility baseline.
+
+BM-PKG-002 must not be treated as the current scientific state of Brain Model and must not be unpacked wholesale into the canonical source tree.
+
+Historical packages may be retained under archive/provenance or referenced by checksum.
+
+## 9. Raw-data policy
+
+Raw or externally distributed datasets are not committed to Git.
+
+The repository should contain instead, where appropriate:
+
+- dataset identifiers
+- acquisition instructions
+- expected filenames
+- checksums where legally and technically appropriate
+- preprocessing contracts
+- provenance records
+
+No raw EDF/HDF5 dataset is migrated merely because it was used by a historical Brain Model analysis.
+
+## 10. Migration verification
+
+Before an artifact becomes canonical in Git, verify:
+
+1. exact source identity;
+2. version / analysis ID;
+3. SHA-256 where available;
+4. scientific status;
+5. supersession relationship;
+6. required dependencies;
+7. expected target path;
+8. reproducibility role;
+9. whether it contains generated or external data;
+10. whether migration changes scientific meaning.
+
+## 11. Planned canonical structure
+
+The intended structure is:
+
+brain-model/
+├── README.md
+├── CHANGELOG.md
+├── .gitignore
+├── docs/
+│   ├── PROJECT_STATUS.md
+│   ├── MIGRATION_LEDGER.md
+│   ├── provenance/
+│   └── preprint/
+├── src/
+├── tests/
+├── scripts/
+├── configs/
+├── results/
+│   └── diagnostics/
+└── archive/
+
+Directories are created only when the first classified artifact is ready for them.
+
+## 12. Current migration gate
+
+Current repository phase:
+
+CONTROLLED MIGRATION
+
+Next gate:
+
+MIGRATION_LEDGER_COMMITTED
+
+Only after this ledger is committed should the first verified scientific artifact be migrated.
+
+The first scientific migration candidate should be selected from the frozen ST44 lineage and verified against its source artifact before placement in the canonical tree.
