@@ -1,0 +1,102 @@
+{
+  "analysis_id": "BM-A027",
+  "challenge_id": "BM-CHALLENGE-001",
+  "version": "1.0",
+  "timestamp_freeze": "2026-09-29T21:54:05+02:00",
+  "authority_at_freeze": "BM_00 v41",
+  "status": "FROZEN_PREREGISTRATION",
+  "r3_unchanged": true,
+  "r3": {
+    "analysis_id": "BM-A011-ST44-RAW-NULL-V3CS-R3",
+    "scientific_package_sha256": "9ab675e3acd157b21845f5f242b43274337c6cb4f5121efc59ad03a84110414f",
+    "n_recordings": 38,
+    "n_subjects": 19,
+    "pilot_subjects_excluded": [21, 22, 24],
+    "B": 1999,
+    "seed": 20260921,
+    "meta_draws": 100000,
+    "statistic": "T_cs",
+    "variants": [
+      "common_phase_run",
+      "independent_channel_phase",
+      "epochwise_common_phase"
+    ],
+    "execution_snapshot": {
+      "complete": 27,
+      "partial": ["ST7152"],
+      "not_started": ["ST7161", "ST7162", "ST7171", "ST7172", "ST7181", "ST7182", "ST7191", "ST7192", "ST7201", "ST7202"],
+      "final_group_aggregation_available": false
+    }
+  },
+  "gates": {
+    "G0_execution_integrity": {
+      "hard": true,
+      "requirements": [
+        "38/38 exact-valid checkpoints",
+        "3 variants per recording",
+        "B=1999 per recording x variant",
+        "acceptance_rate>=0.99",
+        "exact provenance match",
+        "AUDIT_12X all required checks PASS",
+        "final group summary present and consistent",
+        "participant-level population inference"
+      ],
+      "fail_status": "NO_INFERENCE_EXECUTION_FAILURE"
+    },
+    "G1_raw_signal_null": {
+      "hard": true,
+      "inherited_rule": true,
+      "pass": "group empirical p<0.05 for both common_phase_run and epochwise_common_phase",
+      "fail": "both group empirical p>=0.05",
+      "inconclusive": "one common-phase variant passes and one fails",
+      "independent_channel_phase_role": "sensitivity_only"
+    },
+    "G2_lower_order_diagnostics": {
+      "new_prereg": true,
+      "metrics": ["D_occ", "D_self", "D_M1", "z_T"],
+      "associations": [
+        "Spearman(z_T,D_occ)",
+        "Spearman(z_T,D_self)",
+        "Spearman(z_T,D_M1)"
+      ],
+      "bootstrap_unit": "participant",
+      "bootstrap_B": 10000,
+      "seed": 20260929
+    },
+    "G3_continuous_value_added": {
+      "new_prereg": true,
+      "outer_cv": "leave-one-participant-out_19fold",
+      "comparators": ["C0_static_stage", "C1_AR_VAR1", "C2_AR_VAR2plus", "C3_LGSSM", "C4_switching_state_space"],
+      "bm_model": "continuous_multiaxis_BM",
+      "primary_score": "mean_heldout_log_predictive_density_per_target",
+      "primary_difference": "Delta_LPD = LPD_BM - LPD_best_nonBM_baseline",
+      "pass": ["mean_Delta_LPD>0", "exact_two_sided_sign_flip_p<0.05"],
+      "n_sign_patterns": 524288
+    },
+    "G4_representation_robustness": {
+      "new_prereg": true,
+      "axes": [
+        "threshold_density_grid",
+        "graph_construction>=2",
+        "signedness_handling_where_defined",
+        "lambda2_vs_lambda2_Sspec_vs_full_spectrum",
+        "static_vs_trajectory"
+      ],
+      "numeric_grid_freeze_required_before_execution": true
+    },
+    "G5_external_replication": {
+      "required_for_generalization": true,
+      "independent_dataset_or_context": true
+    }
+  },
+  "explicitly_excluded_claims": [
+    "universal_scalar_C",
+    "biological_C_field_ontology",
+    "single_metric_consciousness_marker",
+    "stable_Markov2_law_without_separate_support",
+    "causal_neuronal_memory_from_symbolic_dependence",
+    "temazepam_placebo_effect",
+    "clinical_psychosis_hysteresis",
+    "causal_mechanism_from_null_deviation"
+  ]
+}
