@@ -1,12 +1,12 @@
-!/usr/bin/env python3
-"""BM-A030 -- hardened smart-resume launcher/runner for BM-A029 G2.
+#!/usr/bin/env python3
+"""BM-A031 — Amendment-002 compliant G2 lower-order diagnostic runner.
 
-Scientific analysis remains BM-A029 / BM-A027 G2. This file changes only the
-execution/checkpoint layer. It preserves BM-A011/BM-A029 scientific settings.
+Scientific analysis remains BM-A027 G2 under Amendment-002. This revision preserves
+the frozen G2 mathematics and adds explicit undefined-row reporting/provenance.
 
 Checkpoint design:
 - legacy BM-A029/BM-A030 checkpoints are not valid inputs unless they satisfy the full amended V3 contract;
-- new checkpoints are single-file atomic NPZ artifacts (schema 2);
+- new checkpoints are single-file atomic NPZ artifacts (schema 3);
 - partial state stores Q/PP completed rows + exact NumPy RNG bit-generator state;
 - checkpoint is updated every N accepted replay replicates (default 50);
 - on restart, a partial recording×variant resumes at the next replicate without
@@ -156,6 +156,25 @@ def mismatch(qobs, Pobs, Qnull, Pnull):
             row_tv[i] = 0.5 * np.abs(Pobs[i, mask] - pmed[i, mask]).sum()
     D_M1 = float(np.sum(qobs * row_tv))
     return D_occ, D_self, D_M1, qmed, pmed
+
+
+def undefined_row_report(Pobs, Pnull):
+    """Amendment-002 reporting: observed undefined rows and null availability."""
+    Pobs = np.asarray(Pobs, float)
+    Pnull = np.asarray(Pnull, float)
+    obs_defined = np.any(np.isfinite(Pobs), axis=1)
+    null_row_defined = np.any(np.isfinite(Pnull), axis=2)
+    null_row_counts = np.sum(null_row_defined, axis=0).astype(int)
+    null_cell_counts = np.sum(np.isfinite(Pnull), axis=0).astype(int)
+    return {
+        "observed_undefined_row_mask": (~obs_defined).tolist(),
+        "observed_undefined_row_count": int(np.sum(~obs_defined)),
+        "observed_undefined_row_fraction": float(np.mean(~obs_defined)),
+        "null_defined_replicates_by_row": null_row_counts.tolist(),
+        "null_undefined_replicates_by_row": (Pnull.shape[0] - null_row_counts).tolist(),
+        "null_defined_replicates_by_cell": null_cell_counts.tolist(),
+        "affected_by_undefined_rows": bool(np.any(~obs_defined) or np.any(null_row_counts < Pnull.shape[0])),
+    }
 
 
 def checkpoint_contract(rec, variant, ref_csv, base_path, prod_path, receipt_path):
@@ -513,7 +532,7 @@ def run(args):
     counts = pd.Series([x["action"] for x in plan]).value_counts().to_dict()
     print("RESUME PLAN", counts, flush=True)
     if getattr(args, "plan_only", False):
-        print("BM-A030_PLAN_ONLY_PASS", flush=True)
+        print("BM-A031_PLAN_ONLY_PASS", flush=True)
         return
 
     rows = []; matrices = {}
@@ -584,6 +603,7 @@ def run(args):
                     "checkpoint_granularity": f"every {int(args.chunk_size)} replay replicates",
                 })
 
+            undef = undefined_row_report(Pobs, result["PP"])
             z_T = float(next(x["z_vs_null"] for x in summ["variants"] if x["variant"] == v))
             row = {
                 "recording": rec, "subject": int(rr.subject), "night": int(rr.night), "condition": str(rr.condition),
@@ -591,14 +611,21 @@ def run(args):
                 "D_occ": float(result["D_occ"]), "D_self": float(result["D_self"]), "D_M1": float(result["D_M1"]),
                 "max_replay_dT": float(result["max_replay_dT"]), "max_replay_dE": float(result["max_replay_dE"]),
                 "max_replay_dI": float(result["max_replay_dI"]),
+                "observed_undefined_row_count": undef["observed_undefined_row_count"],
+                "observed_undefined_row_fraction": undef["observed_undefined_row_fraction"],
+                "affected_by_undefined_rows": undef["affected_by_undefined_rows"],
             }
             for si, sn in enumerate(STATES):
                 row[f"q_obs_{sn}"] = float(qobs[si]); row[f"q_null_median_{sn}"] = float(result["qmed"][si])
                 row[f"self_obs_{sn}"] = float(Pobs[si, si]); row[f"self_null_median_{sn}"] = float(result["pmed"][si, si])
+                row[f"obs_row_undefined_{sn}"] = bool(undef["observed_undefined_row_mask"][si])
+                row[f"null_defined_replicates_{sn}"] = int(undef["null_defined_replicates_by_row"][si])
+                row[f"null_undefined_replicates_{sn}"] = int(undef["null_undefined_replicates_by_row"][si])
             rows.append(row)
             matrices[rec][v] = {
                 "state_order": STATES, "q_null_median": json_safe_array(result["qmed"]), "P_null_median": json_safe_array(result["pmed"]),
                 "D_occ": float(result["D_occ"]), "D_self": float(result["D_self"]), "D_M1": float(result["D_M1"]),
+                "undefined_row_report": undef,
             }
         del X, raw_runs
         try:
@@ -619,6 +646,14 @@ def run(args):
         "bootstrap_B": BOOT_B, "bootstrap_seed": BOOT_SEED, "variants": {}, "G1_not_reopened": True,
         "checkpoint_schema": CHECKPOINT_SCHEMA,
         "checkpoint_granularity": None if args.smoke_B is not None else int(args.chunk_size),
+        "applicable_g2_amendment": APPLICABLE_G2_AMENDMENT,
+        "state_order": STATES,
+        "undefined_transition_row_policy": "NaN; finite-only null median; undefined observed/null row contributes zero to D_self/D_M1",
+        "undefined_row_reporting": {
+            "recording_variant_rows_affected": int(diag["affected_by_undefined_rows"].sum()),
+            "recording_variant_rows_total": int(len(diag)),
+            "observed_undefined_rows_total": int(diag["observed_undefined_row_count"].sum()),
+        },
     }
     if args.smoke_B is None:
         if len(diag) != len(inv) * len(VARIANTS):
@@ -682,7 +717,7 @@ def checkpoint_selftest():
         r3 = np.random.default_rng(seed); _ = r3.normal(size=(cut,4)); tail_ref = r3.normal(size=(n-cut,4))
         if not np.array_equal(tail, tail_ref):
             raise RuntimeError("selftest RNG continuation mismatch")
-        print("BM-A030_CHECKPOINT_SELFTEST_PASS", flush=True)
+        print("BM-A031_CHECKPOINT_SELFTEST_PASS", flush=True)
 
 
 def main():
