@@ -53,7 +53,7 @@ The locked BM-A011 R3 and G1 result must not be silently modified by later analy
 | BM-A028 G0/G1 decision | PROVENANCE / GENERATED | FROZEN | docs/provenance/ or results/ |
 | BM-A029 G2 replay | SOURCE | SUPERSEDED BY A031 FOR EXECUTION | archive/provenance |
 | BM-A030 resumable runner | SOURCE / PROVENANCE | SUPERSEDED BY A031 FOR EXECUTION | archive/provenance |
-| BM-A031 patched G2 runner | SOURCE | CURRENT / FULL G2 NOT RUN | src/ after verification |
+| BM-A031 patched G2 runner | SOURCE / PROVENANCE | PATCH_PREPARED / STATIC_TEST_PASS / FULL_G2_NOT_RUN / PROTOCOL_COMPATIBILITY_PENDING | candidate source only; undefined-transition-row policy introduced post-preregistration and must be explicitly frozen before full G2 execution |
 | BM-A031 regression test | TEST | CURRENT | tests/ after verification |
 | BM-A031 patch note | PROVENANCE | CURRENT | docs/provenance/ |
 | BM-A032 frozen protocol | CONFIG / PROVENANCE | CURRENT DIAGNOSTIC | configs/ + docs/provenance/ |
@@ -74,46 +74,7 @@ The following BM-A011 R3 properties remain frozen during migration:
 - surrogate count: B = 1999 per recording × variant
 - master seed: 20260921
 - support: contiguous N2 runs
-- transitions never cross N2-run boundaries
-- statistic: T_cs on common target support
-- primary nulls:
-  - common_phase_run
-  - epochwise_common_phase
-- sensitivity null:
-  - independent_channel_phase
-
-G1 is closed.
-
-Later code migration, G2 diagnostics, positive controls, repository restructuring, or documentation changes must not retroactively alter the locked G1 result.
-
-## 5. Current G1 state
-
-Locked status:
-
-RAW_SIGNAL_NOT_SUPPORTED_UNDER_PRESPECIFIED_COMMON_PHASE_NULLS
-
-This is a bounded statistical result and must not be promoted to claims that neural memory, temporal dependence, nonlinear dynamics, or every Brain Model representation is absent.
-
-## 6. BM-A031 state
-
-BM-A031 corrects the G2 implementation layer without reopening G1.
-
-Current state:
-
-PATCH_PREPARED  
-STATIC_TEST_PASS  
-FULL_G2_NOT_RUN
-
-The corrected implementation includes:
-
-- state order: LL, LH, HL, HH
-- explicit handling of undefined transition rows
-- checkpoint schema V3
-- runner SHA-256 included in checkpoint contract
-- explicit state-order and transition-row policy provenance
-- no reuse of incompatible earlier checkpoints
-
-BM-A031 must be verified before becoming canonical executable source.
+- transitions never cross N2-run bol
 
 ## 7. BM-A032 state
 
@@ -212,4 +173,4 @@ MIGRATION_LEDGER_COMMITTED
 
 Only after this ledger is committed should the first verified scientific artifact be migrated.
 
-The first scientific migration candidate should be selected from the frozen ST44 lineage and verified against its source artifact before placement in the canonical tree.
+The first scientific migration candidate should be selected from the frozen ST44 lineage and verified against its source artifact before placement in the canonical treenn.
