@@ -7,6 +7,50 @@ Historical operations predating this Git repository remain documented in their o
 Changes recorded here do not by themselves constitute scientific results or promote the status of an analysis.
 
 
+## 2026-10-03 — BM-A031 Rev2 canonical source promotion
+
+- Operation: controlled repository canonicalization.
+- Source artifact:
+  `archive/provenance/BM-A031_G2_PATCHED_RUNNER.py`
+- Canonical promoted artifact:
+  `src/BM-A031_G2_PATCHED_RUNNER.py`
+- Promotion method: byte-identical copy; archival provenance artifact retained.
+- Verified SHA-256:
+  `f1619b28939b6a68c812ca8cc9cd4ec7e00eb4aaff9924cc99b061e5da005d7b`
+- Integrity verification: PASS.
+- Scientific code modification: NONE.
+- Amendment-002 semantics: UNCHANGED.
+- Scientific status: `FULL_G2_NOT_RUN / G1_UNCHANGED`.
+- Audit state before promotion: `A PASS / B PASS / C PASS 7/7 / D PASS / E PASS`.
+- Promotion status: `CANONICAL_SOURCE_COPIED_AND_HASH_VERIFIED`.
+- The regression test remains pointed at the archived provenance runner; no test-path change is included in this operation.
+### BM-A031 Rev2 — canonical regression-test path synchronization
+
+- Operation: canonical regression-test path synchronization.
+- Test:
+  `tests/test_bm_a031_amendment002_rev2.py`
+- Previous runner target:
+  `archive/provenance/BM-A031_G2_PATCHED_RUNNER.py`
+- Canonical runner target:
+  `src/BM-A031_G2_PATCHED_RUNNER.py`
+- Change scope:
+  `PATH-ONLY / TEST LOGIC UNCHANGED`
+- Previous verified test SHA-256:
+  `c126618eaa22d2e1587efa3f6c469cf60e8c85563bbdf5f4e262f955cd9178ff`
+- Current canonical-path test SHA-256:
+  `1a11a9dc346f350455a89cb6cea664fdf9bde70d7744e40e90c40cb77df701a2`
+- Canonical runner SHA-256:
+  `f1619b28939b6a68c812ca8cc9cd4ec7e00eb4aaff9924cc99b061e5da005d7b`
+- Regression verification against canonical `src/` runner:
+  `7 / 7 PASS`
+- Amendment-002 semantics:
+  `UNCHANGED`
+- Scientific code modification:
+  `NONE`
+- Gate:
+  `BM-A031_CANONICAL_TEST_PATH_SYNC = PASS`
+- Scientific status:
+  `FULL_G2_NOT_RUN / G1_UNCHANGED` 
 ## 2026-10-03 — BM-A031 Rev2 repository correction and pre-promotion audit
 
 **Audit start:** 2026-10-03T16:25:00+02:00 (Europe/Warsaw) / 2026-10-03T14:25:00Z  
