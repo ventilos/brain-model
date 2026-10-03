@@ -1,4 +1,4 @@
-Brain Model -- Migration Ledger
+Brain Model — Migration Ledger
 
 Project: Brain Model (BM-2026)
 Repository: brain-model
@@ -12,14 +12,14 @@ No historical package or analysis directory is copied wholesale into the canonic
 
 Every artifact must be classified before migration as one of:
 
-• CURRENT -- current canonical project state or active analysis
-• SOURCE -- executable scientific source code
-• TEST -- validation, regression, smoke, or integrity test
-• CONFIG -- frozen configuration or preregistration contract
-• GENERATED -- reproducible output generated from source/configuration
-• PROVENANCE -- audit, execution, lineage, checksum, or historical record
-• SUPERSEDED -- retained only for history/reproducibility
-• EXTERNAL/RAW -- external or raw data; referenced but not committed unless explicitly approved
+• CURRENT — current canonical project state or active analysis
+• SOURCE — executable scientific source code
+• TEST — validation, regression, smoke, or integrity test
+• CONFIG — frozen configuration or preregistration contract
+• GENERATED — reproducible output generated from source/configuration
+• PROVENANCE — audit, execution, lineage, checksum, or historical record
+• SUPERSEDED — retained only for history/reproducibility
+• EXTERNAL/RAW — external or raw data; referenced but not committed unless explicitly approved
 
 2. Current ST44 and post-lock implementation/diagnostic lineage
 
@@ -43,12 +43,12 @@ BM-A031 and BM-A032 are post-lock implementation/diagnostic developments. Their 
 3. Artifact ledger
 
 |Artifact                                       |Classification         |Status                                                                                                                                     |Target / policy                                                                                    |
-|-----------------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+|————————————————|————————|-——————————————————————————————————————————————|—————————————————————————————————|
 |README.md                                      |CURRENT                |MIGRATED                                                                                                                                   |repository root                                                                                    |
 |CHANGELOG.md                                   |CURRENT / PROVENANCE   |MIGRATED                                                                                                                                   |repository root                                                                                    |
 |.gitignore                                     |CONFIG                 |MIGRATED                                                                                                                                   |repository root                                                                                    |
 |docs/PROJECT_STATUS.md                         |CURRENT                |MIGRATED                                                                                                                                   |docs/                                                                                              |
-|docs/MIGRATION_LEDGER.md                       |CURRENT / PROVENANCE   |CURRENT -- UPDATE PREPARED                                                                                                                  |docs/                                                                                              |
+|docs/MIGRATION_LEDGER.md                       |CURRENT / PROVENANCE   |CURRENT — UPDATE PREPARED                                                                                                                  |docs/                                                                                              |
 |BM-A011 R3 scientific package                  |SOURCE / PROVENANCE    |FROZEN                                                                                                                                     |classify contents before migration                                                                 |
 |BM-A011 R3 outputs                             |GENERATED              |FROZEN                                                                                                                                     |results/ after manifest verification                                                               |
 |BM-A027 preregistration                        |CONFIG / PROVENANCE    |FROZEN / MIGRATED                                                                                                                          |docs/provenance/                                                                                   |
@@ -124,10 +124,10 @@ Where Amendment-001 conflicts with the original v1.0 document, Amendment-001 con
 
 The operative primary chain remains:
 
-G0 -- execution integrity
-→ G1 -- inherited frozen R3 raw-signal null gate
-→ G2 -- mandatory lower-order diagnostic context
-→ G3 -- continuous-domain temporal value-added gate
+G0 — execution integrity
+→ G1 — inherited frozen R3 raw-signal null gate
+→ G2 — mandatory lower-order diagnostic context
+→ G3 — continuous-domain temporal value-added gate
 
 External replication remains necessary for cross-dataset or general claims.
 
@@ -310,7 +310,7 @@ Completed migration gates:
 
 Previous gate:
 
-BM-A031_PROTOCOL_COMPATIBILITY_PENDING -- RESOLVED BY AMENDMENT-002 + BM-A031 REV2
+BM-A031_PROTOCOL_COMPATIBILITY_PENDING — RESOLVED BY AMENDMENT-002 + BM-A031 REV2
 
 Current canonicalization gate:
 
