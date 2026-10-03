@@ -80,3 +80,52 @@ No mechanism, treatment, absence-of-memory, or generalized Brain Model claim is 
 `PRE-PROMOTION_AUDIT_PASS / PROTOCOL_COMPATIBILITY_VERIFIED / CORE_MATH_VERIFIED / AMENDMENT002_REPORTING_COMPLIANT / CHECKPOINT_V3_CONTRACT_VERIFIED / FULL_G2_NOT_RUN / G1_UNCHANGED / NOT_YET_PROMOTED`
 
 Promotion to the canonical source tree remains a separate controlled operation.
+
+## 2026-10-03 — BM-A031 Rev2 regression-test path correction
+
+**Scope:** repository-path correction and provenance clarification only.  
+**Scientific impact:** NONE. No G2 scientific computation was performed and no frozen Amendment-002 rule was changed.
+
+### Correction
+
+The BM-A031 Rev2 regression test was corrected to reference the runner at its actual canonical repository location:
+
+`archive/provenance/BM-A031_G2_PATCHED_RUNNER.py`
+
+The previous test path contained an erroneous intermediate `BM-A031/` directory:
+
+`archive/provenance/BM-A031/BM-A031_G2_PATCHED_RUNNER.py`
+
+Only the `RUNNER` path declaration in:
+
+`tests/test_bm_a031_amendment002_rev2.py`
+
+was changed.
+
+### Integrity verification
+
+The corrected regression test contains 110 lines and the same 7 regression tests as the previously verified version.
+
+Corrected regression-test SHA-256:
+
+`c126618eaa22d2e1587efa3f6c469cf60e8c85563bbdf5f4e262f955cd9178ff`
+
+The previous file can be reconstructed exactly by restoring only the removed intermediate path component `/ „BM-A031”`, yielding the previous verified SHA-256:
+
+`eaf355239ba8c5920a19e550b3e765b52c0cbe3effd3e737f1c1fe028c3c969d`
+
+Therefore the correction is classified as:
+
+`PATH-ONLY CHANGE / TEST LOGIC UNCHANGED / AMENDMENT-002 SEMANTICS UNCHANGED`
+
+The BM-A031 runner itself was not modified. Its verified SHA-256 remains:
+
+`f1619b28939b6a68c812ca8cc9cd4ec7e00eb4aaff9924cc99b061e5da005d7b`
+
+### Scientific lock
+
+Full BM-A031 Rev2 G2 remains **NOT RUN**.
+
+G1 remains unchanged.
+
+No scientific claim is promoted by this correction.

@@ -8,7 +8,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
-RUNNER = REPO / "archive" / "provenance" / "BM-A031" / "BM-A031_G2_PATCHED_RUNNER.py"
+RUNNER = REPO / "archive" / "provenance" / "BM-A031_G2_PATCHED_RUNNER.py"
 if not RUNNER.is_file():
     raise SystemExit(f"BM-A031 canonical verification target not found: {RUNNER}")
 
