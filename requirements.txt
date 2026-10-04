@@ -1,4 +1,4 @@
-# Brain Model BM-2026 -- verified local environment freeze
+# Brain Model BM-2026 — verified local environment freeze
 # Verification date: 2026-10-04
 # Verified with Python 3.13.5
 #
