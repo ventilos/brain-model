@@ -3,7 +3,7 @@
 **Project:** Brain Model (BM-2026)  
 **Repository:** brain-model  
 **Canonical branch:** main  
-**Status:** ACTIVE / CONTROLLED MIGRATION  
+**Status:** ACTIVE / PRE-PUBLICATION HARDENING
 **Scientific lock:** BM-A011 R3 frozen / G1 closed  
 **G2 status:** FULL_G2_NOT_RUN
 
@@ -214,6 +214,8 @@ The archival runner is intentionally retained after canonical promotion.
 
 ## Current gate
 
+`## Current gate
+
 `BM-A031_CANONICALIZATION_BUNDLE_COMMIT_AND_REMOTE_VERIFICATION`
 
 Canonical source promotion and canonical regression-test path
@@ -239,12 +241,21 @@ canonicalization.
 
 Scientific status remains:
 
-`FULL_G2_NOT_RUN / G1_UNCHANGED`
+`FULL_G2_NOT_RUN / G1_UNCHANGED``
 
 ## Current phase
 
-Controlled migration and canonicalization of the latest verified Brain
-Model implementation.
+Pre-publication hardening of the canonical Brain Model repository.
 
-Repository engineering operations remain distinct from scientific
-validation and from execution of the prespecified full G2 analysis.
+Canonical source promotion and local canonicalization are complete.
+
+Current work concerns repository reproducibility, documentation,
+environment specification, automated testing, provenance, release
+integrity, and publication readiness.
+
+Repository engineering and publication operations remain distinct from
+scientific validation and from execution of the prespecified full G2
+analysis.
+
+Independent remote repository verification remains deferred and does
+not modify the frozen scientific state.

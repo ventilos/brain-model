@@ -1,0 +1,11 @@
+# Brain Model BM-2026 -- verified local environment freeze
+# Verification date: 2026-10-04
+# Verified with Python 3.13.5
+#
+# Scientific/runtime dependencies
+numpy==2.3.5
+pandas==2.2.3
+scipy==1.17.0
+
+# Regression-test dependency
+pytest==9.0.2

@@ -359,3 +359,128 @@ REVIEW / SEQUENCE_LEVEL_DIAGNOSTIC_COMPLETE / RAW_SIGNAL_PHASE_B_NOT_RUN
 Next canonicalization decision:
 
 VERIFY THE COMMITTED BM-A031 REV2 RUNNER + REGRESSION TEST IN A CLEAN REPOSITORY CONTEXT, PRESERVE REV2 PROVENANCE, THEN DECIDE WHETHER TO PROMOTE THE EXACT VERIFIED RUNNER INTO CANONICAL src/.
+
+## 2026-10-04 — Pre-publication licensing package
+
+### Operation
+
+`BM-2026_PREPUBLICATION_LICENSING_PACKAGE`
+
+### Scope
+
+Repository licensing and publication-governance update performed during
+the pre-publication hardening phase.
+
+This operation does not modify scientific code, frozen protocol rules,
+analysis parameters, estimators, thresholds, scientific results, or
+checkpoint semantics.
+
+### Licensing structure
+
+Software licensing:
+
+`Apache License 2.0`
+
+Repository software explicitly covered by the project software license
+is governed by the root-level:
+
+`LICENSE`
+
+Original project documentation, methodological descriptions, and
+scientific text are designated:
+
+`CC BY 4.0`
+
+except where otherwise stated or where the project does not hold the
+necessary rights.
+
+External datasets, raw neurophysiological data, third-party materials,
+and materials carrying separate licensing terms are not relicensed by
+the Brain Model repository.
+
+Historical and provenance artifacts are retained for reproducibility and
+auditability. Their presence in the repository does not by itself imply
+relicensing under Apache-2.0 or CC BY 4.0.
+
+### Repository artifacts
+
+The licensing package introduces or updates:
+
+- `LICENSE`
+- `THIRD_PARTY_NOTICES.md`
+- `README.md`
+- `docs/MIGRATION_LEDGER.md`
+
+`README.md` records the repository-level licensing boundary.
+
+`THIRD_PARTY_NOTICES.md` records third-party dependency, external-data,
+historical/provenance, and relicensing boundaries.
+
+### Third-party dependencies
+
+The current software dependency review identified use of third-party
+Python packages including:
+
+- NumPy
+- pandas
+- SciPy
+
+These dependencies remain subject to their respective licenses.
+
+No third-party dependency is relicensed by the Brain Model repository.
+
+Exact dependency versions and environment specifications remain subject
+to the separate environment-freeze operation.
+
+### External and raw data
+
+Raw or externally sourced datasets are not transferred into the Brain
+Model licensing scheme merely because they are referenced by identifiers,
+hashes, manifests, provenance records, configurations, or scientific
+documentation.
+
+Original data-source terms continue to govern those materials.
+
+### Scientific impact
+
+`NONE`
+
+Scientific code modification:
+
+`NONE`
+
+Protocol modification:
+
+`NONE`
+
+Amendment-002 semantic modification:
+
+`NONE`
+
+G1 reopening:
+
+`NO`
+
+Full G2 execution:
+
+`NO`
+
+Scientific status remains:
+
+`FULL_G2_NOT_RUN / G1_UNCHANGED`
+
+### Repository phase
+
+`ACTIVE / PRE-PUBLICATION HARDENING`
+
+Licensing-package preparation and repository publication operations are
+administrative/repository-governance operations and must not be
+interpreted as scientific validation or execution of the prespecified
+full G2 analysis.
+
+### Status
+
+`LICENSE_PACKAGE_INTEGRATED`
+
+Final publication readiness remains dependent on completion of the
+remaining pre-publication hardening gates.

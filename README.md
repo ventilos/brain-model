@@ -74,6 +74,23 @@ A public archival release should only be created after:
 GitHub will hold the development history.
 Zenodo will be used for immutable archival releases and DOI assignment.
 
+## License
+
+Software in this repository is licensed under the Apache License 2.0,
+except where otherwise stated.
+
+Project documentation, methodological descriptions, and original
+scientific text are licensed under the Creative Commons Attribution
+4.0 International License (CC BY 4.0), except where otherwise stated.
+
+External datasets, raw neurophysiological data, third-party materials,
+and artifacts carrying separate provenance or licensing terms are not
+relicensed by this repository. Their original terms continue to apply.
+
+Historical and provenance artifacts are retained for reproducibility
+and auditability. Their presence in the repository does not by itself
+imply relicensing under Apache-2.0 or CC BY 4.0.
+
 ## Project
 
 **Brain Model — BM-2026**

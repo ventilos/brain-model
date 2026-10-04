@@ -6,6 +6,106 @@ Historical operations predating this Git repository remain documented in their o
 
 Changes recorded here do not by themselves constitute scientific results or promote the status of an analysis.
 
+## 2026-10-04 — BM-A031 pre-publication repository hardening
+
+**Scope:** repository governance and pre-publication preparation only.  
+**Scientific impact:** NONE. No G1 analysis was reopened and no full G2 execution was performed.
+
+### Repository status transition
+
+Repository phase advanced from:
+
+`ACTIVE / CONTROLLED MIGRATION`
+
+to:
+
+`ACTIVE / PRE-PUBLICATION HARDENING`
+
+The transition follows completion of the previously documented local
+BM-A031 canonical source promotion, canonical regression-test path
+synchronization, and local regression verification.
+
+No scientific code, frozen protocol rule, Amendment-002 semantic rule,
+estimator, threshold, or checkpoint contract was changed by this
+status transition.
+
+### Current repository gate
+
+Previous gate:
+
+`BM-A031_CANONICALIZATION_BUNDLE_COMMIT_AND_REMOTE_VERIFICATION`
+
+Current gate:
+
+`BM-A031_PREPUBLICATION_REPOSITORY_HARDENING`
+
+Canonicalization bundle commit:
+
+`COMPLETE`
+
+Canonical commit:
+
+`311d0e5`
+
+Local repository verification:
+
+`PASS`
+
+Independent remote GitHub verification:
+
+`DEFERRED / NOT INDEPENDENTLY VERIFIED`
+
+Independent remote verification remains desirable but is not treated
+as a prerequisite for pre-publication repository hardening.
+
+If public release occurs before independent remote verification,
+release documentation must explicitly retain:
+
+`REMOTE_REPOSITORY_NOT_INDEPENDENTLY_VERIFIED`
+
+The absence of independent remote verification is not classified as a
+scientific or local repository-verification failure.
+
+### Scientific lock
+
+Scientific lock remains:
+
+`BM-A011 R3 frozen / G1 closed`
+
+Frozen G1 result remains:
+
+`RAW_SIGNAL_NOT_SUPPORTED_UNDER_PRESPECIFIED_COMMON_PHASE_NULLS`
+
+G2 status remains:
+
+`FULL_G2_NOT_RUN`
+
+Scientific status remains:
+
+`FULL_G2_NOT_RUN / G1_UNCHANGED`
+
+No new scientific result or claim is introduced by this operation.
+
+### Current phase
+
+The project has entered controlled pre-publication repository hardening.
+
+Current work concerns repository reproducibility, documentation,
+environment specification, automated testing, provenance, release
+integrity, and publication readiness.
+
+Repository hardening and publication operations remain distinct from
+scientific validation and from execution of the prespecified full G2
+analysis.
+
+### Change classification
+
+`DOCUMENTATION / REPOSITORY GOVERNANCE / PRE-PUBLICATION HARDENING`
+
+Scientific-impact classification:
+
+`NONE`
+
 
 ## 2026-10-03 — BM-A031 Rev2 canonical source promotion
 
