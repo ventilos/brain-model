@@ -61,6 +61,20 @@ Claim-bearing releases should include:
 - validation/audit outputs,
 - changelog entry.
 
+### Installation and code checks
+
+```bash
+python -m pip install -r requirements.txt
+python -m pytest -q
+python src/BM-A031_G2_PATCHED_RUNNER.py —checkpoint-selftest
+```
+
+These commands install dependencies and run regression and checkpoint
+self-tests. They do not reproduce the G1 analysis or execute full G2.
+
+Local verification environment: Python 3.13.5.
+CI test environment: Python 3.11. 
+
 ## Release policy
 
 Development versions may change.
