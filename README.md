@@ -4,7 +4,7 @@ Research repository for the Brain Model (BM-2026) project.
 
 ## Status
 
-**Work in progress / private research repository**
+**Work in progress / public research repository**
 
 Current analyses are retrospective and falsification-oriented.
 No result in this repository should be interpreted as establishing a biological mechanism, a universal field, consciousness, causality, or clinical validity.
