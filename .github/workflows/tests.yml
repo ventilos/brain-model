@@ -28,5 +28,5 @@ jobs:
 
       - name: Run BM-A031 regression tests
         run: python -m pytest -q
-              - name: Run BM-A031 checkpoint self-test
+      - name: Run BM-A031 checkpoint self-test
         run: python src/BM-A031_G2_PATCHED_RUNNER.py --checkpoint-selftest
