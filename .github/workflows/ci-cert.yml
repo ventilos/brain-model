@@ -1,0 +1,38 @@
+name: BM CI Contract — BM-A031 Rev2
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  bm-ci-cert-001:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up frozen Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13.5"
+
+      - name: Install frozen CI environment
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-ci.txt
+
+      - name: Verify frozen BM-A031 Rev2 contract
+        run: python tools/verify_ci_contract.py
+
+      - name: Run frozen BM-A031 Rev2 regression tests
+        run: python -m pytest -q tests/test_bm_a031_amendment002_rev2.py
+
+      - name: State certification boundary
+        run: |
+          echo "CI_CONTRACT_PASS: BM-A031 Rev2 frozen contract only"
+          echo "FULL_PROJECT_REPRODUCIBILITY: NOT_TESTED"
+          echo "FULL_G2: NOT_RUN"
+          echo "G1: UNCHANGED"
