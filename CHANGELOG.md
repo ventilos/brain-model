@@ -6,6 +6,40 @@ Historical operations predating this Git repository remain documented in their o
 
 Changes recorded here do not by themselves constitute scientific results or promote the status of an analysis.
 
+## 2026-10-06 — Publication-readiness corrections (documentation, licensing, provenance records)
+
+**Scope:** documentation, licensing, provenance records and repository layout only.  
+**Scientific impact:** NONE. No scientific code, regression test, frozen protocol rule, estimator, threshold, checkpoint contract or CI contract file was changed. G1 was not reopened and full G2 was not executed.
+
+### Changes
+
+- `README.md` rewritten: status table, contents, quick-verification commands, data source and attribution, prespecification timeline, related publication (new preprint in preparation), release policy and licensing. The previous self-test command contained an em dash (`—checkpoint-selftest`) instead of `—checkpoint-selftest` and failed with „unrecognized arguments”; the previous structure section listed four directories that do not exist.
+- Added `CITATION.cff` (author, ORCID, dataset and article references), `NOTICE` (copyright) and `docs/LICENSE-DOCS.md` (scope of the CC BY 4.0 documentation licence).
+- `LICENCE` renamed to `LICENSE` and replaced by the complete canonical Apache License 2.0 text (SHA-256 `cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30`). The previous copy ended in the middle of the last sentence of the appendix; terms 1–9 were complete.
+- `THIRD_PARTY_NOTICES.md`: named the Sleep-EDF Database Expanded v1.0.0 source, its ODC-By 1.0 licence, the required notice and citations; listed dependency licences, including the runtime dependencies of the external R3 operator (MNE-Python, requests).
+- `docs/provenance/BM-A027_PREREGISTRATION.md` and `docs/provenance/BM-A027_AMENDMENT_001_PREOUTCOME_SOURCE_CONSISTENCY_2026-09-29.md` replaced by the byte-exact frozen originals (SHA-256 `f6403115755901861b8e202495841fb38d126a4c89ced2f80241ca569573fb90` and `ccf4a7b5fedacdf417fcb048c5639220a4116cc4e0c3c7168462d7cc8c31497e`). The previous repository copies had lost their Markdown markup; a word-level comparison found no textual difference (2,062/2,062 and 634/634 words).
+- `docs/provenance/BM-A031_REV2_AMENDMENT002_COMPATIBILITY_RECORD_2026-10-03.md`: dated correction note appended. Commit `a6a6d01` cited in the record does not exist in the repository history; the path correction is in `5d0fbb4`. The original sentence is kept.
+- `docs/PROJECT_STATUS.md` and `docs/MIGRATION_LEDGER.md` brought up to date: current gate, canonical runner and test identities, open items before an archival release, operational rule for production G2, integrity register and history notes; Markdown rendering errors fixed.
+- BM-CI-CERT-001 v0.2 delivery records (`BM-CI-CERT-001_V0.2_REPORT_2026-10-05.md`, `PACKAGE_FILE_SHA256.txt`, `CHANGELOG_APPEND.md`) moved unchanged from the repository root to `docs/provenance/ci/BM-CI-CERT-001_v0.2/`. The content of `CHANGELOG_APPEND.md` is recorded in the 2026-10-05 entry below.
+
+### Change classification
+
+`DOCUMENTATION / LICENSING / PROVENANCE RECORD CORRECTION`
+
+Scientific status remains:
+
+`FULL_G2_NOT_RUN / G1_UNCHANGED`
+
+## 2026-10-05 — BM-CI-CERT-001 v0.2
+
+- Added fail-closed CI contract verification for frozen BM-A031 Rev2.
+- Added runtime verification of Python 3.13.5 and frozen package versions.
+- Added integrity checks for requirements-ci.txt and ci-cert.yml.
+- Strengthened negative integrity self-test to require rejection by the production hash verifier.
+- Preserved scientific boundary: FULL_G2_NOT_RUN; G1_UNCHANGED.
+- CI_CONTRACT_PASS must not be reported as FULL_PROJECT_REPRODUCIBILITY_PASS.
+- Remote status remains NOT YET VERIFIED until GitHub Actions completes successfully on current main.
+
 ## 2026-10-04 — BM-A031 pre-publication repository hardening
 
 **Scope:** repository governance and pre-publication preparation only.  
