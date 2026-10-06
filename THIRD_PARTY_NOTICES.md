@@ -6,12 +6,22 @@ considerations, and licensing boundaries relevant to the Brain Model
 
 ## Software dependencies
 
-The Brain Model software may depend on third-party Python packages,
-including:
+The Brain Model software depends on third-party Python packages. None
+of them is redistributed in this repository; they are installed from
+their own distribution channels.
 
-- NumPy
-- pandas
-- SciPy
+| Package | Used by | License |
+|—|—|—|
+| NumPy | runner, tests, CI contract | BSD-3-Clause |
+| pandas | runner, tests, CI contract | BSD-3-Clause |
+| SciPy | runner, tests, CI contract | BSD-3-Clause |
+| pytest | tests, CI contract | MIT |
+| MNE-Python | external BM-A004 operator (full G2 runs only; not in this repository) | BSD-3-Clause |
+| requests | external BM-A004 operator (full G2 runs only; not in this repository) | Apache-2.0 |
+
+Pinned versions are listed in `requirements.txt` and `requirements-ci.txt`;
+the R3 runtime pins `mne==1.11.0` and `requests==2.32.5` belong to the
+frozen BM-A011 R3 package.
 
 These packages are separate works and remain subject to their respective
 licenses and copyright notices.
@@ -35,6 +45,29 @@ Users must obtain external datasets from their authorized sources and
 comply with the original dataset licenses, data-use agreements,
 ethical restrictions, access conditions, and attribution requirements.
 
+### Sleep-EDF Database Expanded
+
+The analyses in this project use the sleep-telemetry (ST) recordings of
+the **Sleep-EDF Database Expanded, version 1.0.0**, distributed by
+PhysioNet at <https://physionet.org/content/sleep-edfx/1.0.0/>.
+
+- License: Open Data Commons Attribution License v1.0 (ODC-By 1.0).
+- Raw EDF files are not redistributed by this repository.
+- Any derived data shared from this project must carry the notice:
+  „Contains information from Sleep-EDF Database Expanded which is made
+  available under the ODC Attribution License.”
+- Required citations:
+  - Kemp B. Sleep-EDF Database Expanded (version 1.0.0). PhysioNet.
+    https://doi.org/10.13026/C2X676
+  - Kemp B, Zwinderman AH, Tuk B, Kamphuisen HAC, OberyÃ© JJL. Analysis
+    of a sleep-dependent neuronal feedback loop: the slow-wave
+    microcontinuity of the EEG. IEEE Trans Biomed Eng.
+    2000;47(9):1185â1194. https://doi.org/10.1109/10.867928
+  - Goldberger AL, Amaral LAN, Glass L, et al. PhysioBank,
+    PhysioToolkit, and PhysioNet: components of a new research resource
+    for complex physiologic signals. Circulation.
+    2000;101(23):e215âe220. https://doi.org/10.1161/01.CIR.101.23.e215
+
 ## Historical and provenance artifacts
 
 The repository may retain historical, superseded, archival, or
@@ -42,7 +75,7 @@ provenance artifacts for reproducibility, verification, and scientific
 audit.
 
 Presence of an artifact in the repository does not by itself establish
-that the artifact is licensed under the repository’s Apache License 2.0
+that the artifact is licensed under the repositoryâs Apache License 2.0
 or CC BY 4.0 licensing scheme.
 
 Where an artifact contains or incorporates third-party material, the
@@ -53,7 +86,8 @@ original copyright and licensing terms continue to apply.
 Original Brain Model documentation, methodological descriptions, and
 scientific text identified by the repository as project documentation
 are licensed under the Creative Commons Attribution 4.0 International
-License (CC BY 4.0), except where otherwise stated.
+License (CC BY 4.0), except where otherwise stated. The scope of this
+licence is defined in `docs/LICENSE-DOCS.md`.
 
 This licensing statement does not apply to third-party quotations,
 figures, datasets, software, or other incorporated materials for which
