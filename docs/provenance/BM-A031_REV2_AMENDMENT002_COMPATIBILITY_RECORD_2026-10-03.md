@@ -1,7 +1,7 @@
-BM-A031 Rev2 -- Amendment-002 compatibility record
+BM-A031 Rev2 – Amendment-002 compatibility record
 
 Project: Brain Model (BM-2026)
-Analysis: BM-A031 G2 corrective runner -- Revision 2
+Analysis: BM-A031 G2 corrective runner – Revision 2
 Date: 2026-10-02
 Timestamp of Library update: 2026-10-02T21:13:41+02:00
 Status: PROTOCOL_COMPATIBILITY_VERIFIED / CORE_MATH_VERIFIED /
@@ -78,7 +78,7 @@ verification of the unchanged test logic. It does not independently
 certify execution of the current GitHub commit and does not constitute a
 full G2 execution.
 
-Repository-path correction -- 2026-10-03
+Repository-path correction – 2026-10-03
 
 The regression-test runner reference was corrected from:
 
@@ -131,15 +131,35 @@ Scientific lock
 • No mechanism, treatment, absence-of-memory, or generalized Brain
 Model claim follows from this implementation update.
 
+Correction – 2026-10-06
+
+The statement above that main and origin/main were aligned “at commit
+a6a6d01” cannot be verified: no object with that abbreviated hash exists
+in the repository history (all reachable and unreachable objects of the
+2026-10-05 working copy were checked). The repository-path correction
+and the corresponding CHANGELOG update are contained in commit 5d0fbb4
+(2026-10-03T17:14:21+02:00); this record was first committed in c40b814
+(2026-10-03T19:48:30+02:00). The original sentence is kept unchanged as
+provenance; no other statement of this record is affected.
+
+Since 2026-10-03 the regression test targets the canonical runner
+src/BM-A031_G2_PATCHED_RUNNER.py (test SHA-256
+1a11a9dc346f350455a89cb6cea664fdf9bde70d7744e40e90c40cb77df701a2;
+runner unchanged). The test hashes recorded above are historical.
+
 Change log
 
-• 2026-10-02T21:13:41+02:00 -- Added BM-A031 Rev2 compatibility
+• 2026-10-02T21:13:41+02:00 – Added BM-A031 Rev2 compatibility
 record; recorded Rev2 runner/test hashes, Amendment-002
 computational semantics, corrected reporting compliance, checkpoint
 V3 provenance, retained methodological caveat, and unchanged
 G1/full-G2 status.
-• 2026-10-03 -- Repository-path correction incorporated into the
+• 2026-10-03 – Repository-path correction incorporated into the
 compatibility record. Preserved the pre-correction test hash as
 historical provenance and recorded the current path-corrected test
 hash. No runner code, regression-test logic, frozen Amendment-002
 semantics, G1 status, or full-G2 status changed.
+• 2026-10-06 – Correction note added: the commit reference a6a6d01
+does not exist in the repository history; the path correction is in
+5d0fbb4. Current canonical test identity noted. Record otherwise
+unchanged.
