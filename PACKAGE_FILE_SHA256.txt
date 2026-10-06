@@ -1,6 +1,0 @@
-a6c8644c417419fcfba2a5d155f992f5944fbebcf087e59db224a2b9dc80c968  ./.github/workflows/ci-cert.yml
-a29e3bbf70025b1fc83e955b46a9e5bfa45663aea1028679e59d4bbda0498bbe  ./BM-CI-CERT-001_V0.2_REPORT_2026-10-05.md
-5e9c77c47cc9208dfa2fc4bb3b6f7ac45024c6b2f76a8f1bd082bdeb2c699384  ./CHANGELOG_APPEND.md
-bbf614a2f2dc794be5a38bef9ac2927a4f57fd22e21d8c8e5e7c82979c542793  ./CONTRACT_SHA256.txt
-2905ba50505ca0a4dd03ae415e4e8e84dedb4d4ef560fa8e051e4306aa681553  ./requirements-ci.txt
-ea7861bf6a7eab5c3e7f9e0e5bed877b396f3ae83916dfa39e8e82086fa9f2d6  ./tools/verify_ci_contract.py
