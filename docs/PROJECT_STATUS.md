@@ -137,13 +137,13 @@ Amendment-002 semantics:
 - Verifier: `tools/verify_ci_contract.py`; workflow: `.github/workflows/ci-cert.yml`; environment: `requirements-ci.txt`.
 - Frozen controls: Python 3.13.5; numpy 2.3.5; pandas 2.2.3; scipy 1.17.0; pytest 9.0.2; SHA-256 of the runner, the regression test, `requirements-ci.txt` and `ci-cert.yml`.
 - Local CI contract: `PASS` (2026-10-05).
-- Remote GitHub Actions status: `NOT YET VERIFIED` — record the run URL here once both workflows are green on main.
+- Remote GitHub Actions status: `PASS` (2026-10-06).
+- Post-push CI verification:
+  - HEAD: `eeb5f36`
+  - BM CI Contract — BM-A031 Rev2 #18: `PASS`
+  - Run: https://github.com/ventilos/brain-model/actions/runs/37472826228
 - Boundary: `CI_CONTRACT_PASS` is not `FULL_PROJECT_REPRODUCIBILITY_PASS`; full-project reproducibility remains `NOT_TESTED`.
 - Delivery record: `docs/provenance/ci/BM-CI-CERT-001_v0.2/`.
-- Post-push CI verification (2026-10-06):
-- HEAD: `eeb5f36`
-- BM CI Contract — BM-A031 Rev2 #18: PASS
-- Run: https://github.com/ventilos/brain-model/actions/runs/37472826228
 
 ## Checkpoint contract
 
@@ -240,7 +240,7 @@ Current work concerns repository reproducibility, documentation, environment spe
 
 Repository engineering and publication operations remain distinct from scientific validation and from execution of the prespecified full G2 analysis.
 
-Independent remote repository verification remains deferred and does not modify the frozen scientific state.
+Remote CI verification is complete for the recorded post-push commit and does not modify the frozen scientific state.
 
 ## Publication
 
