@@ -1,0 +1,35 @@
+{
+  "package_id": "BM-G0-R3-PROVENANCE-IMPORT-2026-10-08",
+  "purpose": "historical evidence import; not new analysis",
+  "repository": "ventilos/brain-model",
+  "base_state": "last user-confirmed green GitHub state; contents not live-accessible",
+  "frozen_decision": {
+    "G0": "PASS",
+    "G1": "FAIL",
+    "G2": "NOT_RUN",
+    "G3": "NOT_RUN",
+    "claim_state": "RAW_SIGNAL_NOT_SUPPORTED_UNDER_PRESPECIFIED_COMMON_PHASE_NULLS"
+  },
+  "files": [
+    {
+      "path": "archive/provenance/g0_r3/BM-A028_G0_G1_DECISION.json",
+      "size_bytes": 713,
+      "sha256": "e37c36d089afd09ede83b1949b367552fa1d03c00530f4c0a5680deef17acde2"
+    },
+    {
+      "path": "archive/provenance/g0_r3/BM-A028_G0_G1_DECISION.md",
+      "size_bytes": 481,
+      "sha256": "39c73abcbee30408b677e5337aae015fc6222a5e77cc60657916f56dd78292c4"
+    },
+    {
+      "path": "archive/provenance/g0_r3/BM-A011_RAW_NULL_V3CS_R3_B1999.zip",
+      "size_bytes": 7389894,
+      "sha256": "20b6e95d482c3371ce5b95ee44f861b6f39f327dbbd61d40fe276e674c6726f3"
+    },
+    {
+      "path": "archive/provenance/g0_r3/BM-A011_STEP3_FULL_RAW_SIGNAL_V3CS_R3_2026-09-26.zip",
+      "size_bytes": 32525,
+      "sha256": "9ab675e3acd157b21845f5f242b43274337c6cb4f5121efc59ad03a84110414f"
+    }
+  ]
+}

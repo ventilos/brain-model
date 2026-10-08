@@ -1,0 +1,16 @@
+{
+  "analysis_id": "BM-A028",
+  "parent_preregistration": "BM-A027 / BM-CHALLENGE-001 + AMENDMENT-001",
+  "timestamp_utc": "2026-10-02T06:14:09.157869+00:00",
+  "r3_analysis_id": "BM-A011-ST44-RAW-NULL-V3CS-R3",
+  "G0": "PASS",
+  "G0_basis": "strict 38/38 checkpoint validator + AUDIT_12X all PASS + final group summary/contract consistency",
+  "G1": "FAIL",
+  "p_common_phase_run": 0.8773312266877331,
+  "p_epochwise_common_phase": 0.1263787362126378,
+  "p_independent_channel_phase_sensitivity_only": 0.1152388476115238,
+  "claim_state_after_G1": "RAW_SIGNAL_NOT_SUPPORTED_UNDER_PRESPECIFIED_COMMON_PHASE_NULLS",
+  "G2_status": "NOT_RUN",
+  "G3_status": "NOT_RUN",
+  "no_claim_promotion_beyond_mapping": true
+}
