@@ -95,7 +95,7 @@ Google Drive metadata are recorded by Google but are not a public registry, and 
 
 ## Related publication
 
-ST44 preprint v2.6 (2026-10-09): Read the preprint (PDF).
+**ST44 preprint v2.6 (2026-10-09):** [Read the preprint (PDF)](docs/preprint/BM_ST44_preprint_v2.6_2026-10-09.pdf).
 
 This is an author preprint, not a peer-reviewed publication. No DOI has been assigned.
 
