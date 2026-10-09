@@ -37,7 +37,7 @@ references:
     authors:
       - family-names: Kemp
         given-names: Bob
-        publisher: PhysioNet
+    publisher: PhysioNet
     doi: 10.13026/C2X676
     url: "https://physionet.org/content/sleep-edfx/1.0.0/"
     license: ODC-By-1.0
