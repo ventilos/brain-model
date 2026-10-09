@@ -6,6 +6,53 @@ Historical operations predating this Git repository remain documented in their o
 
 Changes recorded here do not by themselves constitute scientific results or promote the status of an analysis.
 
+## 2026-10-09 — ST44 preprint v2.6: public repository availability and documentation update
+
+Change classification: DOCUMENTATION / PREPRINT AVAILABILITY / NO SCIENTIFIC MODIFICATION
+
+Scope: Public availability of the author preprint and corresponding repository documentation.
+
+Preprint artifact
+
+* File: docs/preprint/BM_ST44_preprint_v2.6_2026-10-09.pdf
+* Version: v2.6.
+* Document date: 2026-10-09.
+* Publication status: publicly available author preprint; not peer-reviewed.
+* DOI: not assigned.
+* Remote file presence: verified through the GitHub repository interface/API.
+* Byte-for-byte identity with the original author-approved PDF: not independently verified in this repository check.
+
+Repository documentation
+
+* README.md: updated to link directly to the preprint and clarify its publication and scientific status.
+* CHANGELOG.md: this entry documents the repository publication and accompanying documentation update.
+* The documentation changes do not constitute a new scientific analysis.
+
+Frozen scientific status
+
+* G0: PASS (38/38 checkpoints).
+* G1: closed and unchanged.
+* Frozen G1 claim: RAW_SIGNAL_NOT_SUPPORTED_UNDER_PRESPECIFIED_COMMON_PHASE_NULLS.
+* G2: FULL_G2_NOT_RUN.
+* G3: not run.
+
+The G1 result is restricted to the prespecified ST44 statistic, locked cohort, signal-processing pipeline and surrogate-null hierarchy. It must not be interpreted as demonstrating the general absence of temporal structure or memory in EEG.
+
+Integrity and reproducibility boundaries
+
+* No scientific code, estimator, threshold, surrogate-null definition or frozen analysis rule is changed by this documentation operation.
+* No new scientific computation is reported.
+* Public availability of the preprint does not establish independent replication, full-project reproducibility or peer-reviewed validation.
+* Repository documentation verification and scientific reproducibility verification remain separate operations.
+
+Scientific impact
+
+NONE — G1_UNCHANGED / FULL_G2_NOT_RUN
+
+Follow-up verification
+
+After committing and pushing the documentation update, verify the remote README and CHANGELOG contents and check the GitHub Actions status for the resulting commit.
+
 ## 2026-10-06 — Publication-readiness corrections (documentation, licensing, provenance records)
 
 **Scope:** documentation, licensing, provenance records and repository layout only.  

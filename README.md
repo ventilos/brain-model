@@ -95,7 +95,13 @@ Google Drive metadata are recorded by Google but are not a public registry, and 
 
 ## Related publication
 
-A new preprint describing the ST44 results is in preparation. Its DOI will be added here and to [`CITATION.cff`](CITATION.cff).
+ST44 preprint v2.6 (2026-10-09): Read the preprint (PDF).
+
+This is an author preprint, not a peer-reviewed publication. No DOI has been assigned.
+
+The frozen G1 conclusion remains RAW_SIGNAL_NOT_SUPPORTED_UNDER_PRESPECIFIED_COMMON_PHASE_NULLS. The full G2 analysis has not been run (FULL_G2_NOT_RUN).
+
+Publishing the preprint does not constitute independent reproduction of the scientific results. A DOI may be added following a separate archival deposit.
 
 ## How to cite
 
